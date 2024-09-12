@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+{% block title %} Palindrome checker {% endblock %}
+{% block body %}
+<form method="get" action="{{path("palindrome")}}">
+<input type="text" name="pal">
+</form>
+{% endblock %}

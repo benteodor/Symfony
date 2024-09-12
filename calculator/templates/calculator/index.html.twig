@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block title %} Symfony Calculator App {% endblock %}
+{% block body %}
+<h1>Calculator</h1>
+<form method="get" action="{{path("calc2")}}">
+<div class="container">
+<label for="number1">First number  </label>
+<input type="number" name="number1">
+</div>
+<br>
+<div class="container">
+<label for="number2">Second number  </label>
+<input type="number" name="number2">
+</div>
+<div class="container">
+<label for="operation">Choose operator  </label>
+<select name="operation" id="operation">
+<option value="+">Add</option>
+<option value="-">Subtract</option>
+<option value="*">Multiply</option>
+<option value="/">Divide</option>
+</select>
+<input type="submit" name="submit"> 
+</div>
+</form>
+<table class="table" >
+    <thead>
+        <tr>
+            <th>Calculation</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+ {% for key, value in calculations %}
+    <tr>
+        <td> {{key}} {{number1}} {{operator}} {{number2}}</td>
+        <td>{{value}}</td>
+    </tr>
+{% endfor %} 
+</table>
+{% endblock %}
